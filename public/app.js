@@ -13,7 +13,7 @@ const menuItems = [
 ];
 
 // Function to toggle dark mode
-const toggle = () => html.classList.toggle('dark');
+const toggleTheme = () => html.classList.toggle('dark');
 
 // Function to set the view based on menu item clicked
 const setView = (v) => {
@@ -33,9 +33,9 @@ const setView = (v) => {
 // Function to toggle the mobile menu visibility
 const toggleMenu = (hide) => {
     if (!hide) {
-        ddMenu.classList.toggle('hidden'); // Toggle visibility of mobile menu
+        ddMenu.classList.toggleTheme('hidden'); // Toggle visibility of mobile menu
         document.querySelectorAll('svg').forEach((el) => {
-            el.classList.toggle('hidden'); // Toggle visibility of all SVG elements
+            el.classList.toggleTheme('hidden'); // Toggle visibility of all SVG elements
         });
     } else {
         ddMenu.classList.add('hidden'); // Hide mobile menu
@@ -121,8 +121,8 @@ const renderMenu = () => {
 
 // Function to render the theme toggle buttons
 const renderThemeToggle = () => {
-    const darkButton = `<button class="dark:hidden block" onclick="toggle()">Dark</button>`; 
-    const lightButton = `<button class="hidden dark:block" onclick="toggle()">Light</button>`; 
+    const darkButton = `<button class="dark:hidden block" onclick="toggleTheme()">Dark</button>`; 
+    const lightButton = `<button class="hidden dark:block" onclick="toggleTheme()">Light</button>`; 
 
     const themeContainer = document.querySelector('#themeToggle'); // Select theme toggle container
     themeContainer.innerHTML = darkButton + lightButton; // Insert toggle buttons into themeContainer
